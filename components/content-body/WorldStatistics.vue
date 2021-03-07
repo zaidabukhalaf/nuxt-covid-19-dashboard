@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import StaticsWidget from "@/components/ui/StaticsWidget";
 export default {
   components: {
@@ -27,6 +28,15 @@ export default {
         "todayDeaths",
       ],
     };
+  },
+  async fetch() {
+    const response = await axios.get("https://disease.sh/v3/covid-19/all");
+    const worldData = await response.data;
+    let worldStaticArray = Object.entries(worldData).map(([key, value]) => ({
+      title: key,
+      numbers: value,
+    }));
+    this.$store.dispatch("setworldStatic", worldStaticArray);
   },
   computed: {
     worldStatic() {
