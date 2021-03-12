@@ -1,5 +1,5 @@
 <template>
-  <div class="col-xl-6 col-lg-6 col-md-6 col">
+  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
     <div class="widget" :class="title">
       <h5>{{ title | capitalize }}</h5>
       <h2>{{ numbers | formatNumber }}</h2>
@@ -32,19 +32,22 @@ export default {
   background-color: #32305f;
   flex-direction: column;
 }
-.cases {
+.NewConfirmed {
   color: #3398fb;
 }
-.todayCases {
+.TotalConfirmed {
   color: #ff9100;
 }
-.recovered {
-  color: #49daa0;
+.NewDeaths {
+  color: #f10733;
 }
-.deaths {
+.TotalDeaths {
   color: #de4c4c;
 }
-.todayDeaths {
-  color: #f10733;
+.NewRecovered {
+  color: #49daa0;
+}
+.TotalRecovered {
+  color: #00ff99;
 }
 </style>
